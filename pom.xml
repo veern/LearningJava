@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>project</artifactId>
+    <artifactId>GeneralJavaProject</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -17,6 +17,17 @@
 
     <modules>
         <module>SimpleToDoApp</module>
+        <module>ToDoAppWithMySQL</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>9.2.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
