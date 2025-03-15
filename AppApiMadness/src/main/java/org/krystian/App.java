@@ -14,13 +14,7 @@ public class App {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args){
-        try {
-            HttpClient httpClient = HttpClient.newHttpClient();
-            HttpResponse<String> httpResponse = httpClient.send(getHttpRequest(), HttpResponse.BodyHandlers.ofString());
-            System.out.println(httpResponse.body());
-        } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        mainProgramLoop();
     }
 
     private void welcomeMessage(){
@@ -41,5 +35,15 @@ public class App {
             System.err.println(Arrays.toString(e.getStackTrace()));
         }
         return null;
+    }
+
+    private static void mainProgramLoop() {
+        try {
+            HttpClient httpClient = HttpClient.newHttpClient();
+            HttpResponse<String> httpResponse = httpClient.send(getHttpRequest(), HttpResponse.BodyHandlers.ofString());
+            System.out.println(httpResponse.body());
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
